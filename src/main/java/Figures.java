@@ -2,8 +2,8 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Figures {
-    private static final int WIDTH = 300;
-    private static final int HEIGHT = 300;
+    private static final int WIDTH = 500;
+    private static final int HEIGHT = 500;
 
     public static void main(String[] args) throws InterruptedException {
         JFrame frame = new JFrame("test");
