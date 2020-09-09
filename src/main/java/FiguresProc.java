@@ -15,23 +15,23 @@ public class FiguresProc {
         int dxc = 1;
         int yc = 20;
         int dyc = 2;
-        int sizec = 50;
+        int sizeC = 50;
 
         int xq = 30;
         int dxq = 2;
         int yq = 50;
         int dyq = 3;
-        int sizeq = 40;
+        int sizeQ = 40;
 
         int xt = 40;
         int dxt = 3;
         int yt = 30;
         int dyt = 2;
-        int sizet = 60;
+        int sizeT = 60;
 
-        Circle circle = new Circle(xc, yc, sizec, Color.red);
-        Square square = new Square(xq, yq, sizeq, Color.green);
-        Triangle triangle = new Triangle(xt, yt, sizet, Color.blue);
+        Circle circle = new Circle(xc, yc, sizeC, Color.red);
+        Square square = new Square(xq, yq, sizeQ, Color.green);
+        Triangle triangle = new Triangle(xt, yt, sizeT, Color.blue);
 
         frame.add(circle);
         frame.add(square);
@@ -39,36 +39,36 @@ public class FiguresProc {
 
         while (true){
             Thread.sleep(10);
-            int[] pozition = getPozition(xc, yc, dxc, dyc, sizec, frame.getContentPane().getWidth(), frame.getContentPane().getHeight());
-            xc = pozition[0];
-            yc = pozition[1];
-            dxc = pozition[2];
-            dyc = pozition[3];
+            int[] position = getPosition(xc, yc, dxc, dyc, sizeC, frame.getContentPane().getWidth(), frame.getContentPane().getHeight());
+            xc = position[0];
+            yc = position[1];
+            dxc = position[2];
+            dyc = position[3];
             circle.setLocation(xc, yc);
 
-            pozition = getPozition(xq, yq, dxq, dyq, sizeq, frame.getContentPane().getWidth(), frame.getContentPane().getHeight());
-            xq = pozition[0];
-            yq = pozition[1];
-            dxq = pozition[2];
-            dyq = pozition[3];
+            position = getPosition(xq, yq, dxq, dyq, sizeQ, frame.getContentPane().getWidth(), frame.getContentPane().getHeight());
+            xq = position[0];
+            yq = position[1];
+            dxq = position[2];
+            dyq = position[3];
             square.setLocation(xq, yq);
 
-            pozition = getPozition(xt, yt, dxt, dyt, sizet, frame.getContentPane().getWidth(), frame.getContentPane().getHeight());
-            xt = pozition[0];
-            yt = pozition[1];
-            dxt = pozition[2];
-            dyt = pozition[3];
+            position = getPosition(xt, yt, dxt, dyt, sizeT, frame.getContentPane().getWidth(), frame.getContentPane().getHeight());
+            xt = position[0];
+            yt = position[1];
+            dxt = position[2];
+            dyt = position[3];
             triangle.setLocation(xt, yt);
         }
     }
-    private static int[] getPozition(int x, int y, int dx, int dy, int size, int containerWidth, int containerHight){
+    private static int[] getPosition(int x, int y, int dx, int dy, int size, int containerWidth, int containerHeight){
         int[] result = new int[4];
         x += dx;
         y += dy;
         if(x  <= 0 || x + size >= containerWidth){
             dx = -dx;
         }
-        if(y <= 0 || y + size >= containerHight){
+        if(y <= 0 || y + size >= containerHeight){
             dy = -dy;
         }
         result[0] = x;
