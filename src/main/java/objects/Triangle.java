@@ -8,11 +8,10 @@ public class Triangle extends Figure{
     private Point maxPoint, minPoint;
 
     Triangle(Point vertex1, Point vertex2, Point vertex3, Color color, Point distance) {
-        super();
+        super(distance, color);
         this.vertex1 = vertex1;
         this.vertex2 = vertex2;
         this.vertex3 = vertex3;
-        this.distance = distance;
 
         this.maxPoint = new Point(Math.max(Math.max(vertex1.x, vertex2.x), vertex3.x),
                 Math.max(Math.max(vertex1.y, vertex2.y), vertex3.y));
@@ -20,7 +19,6 @@ public class Triangle extends Figure{
                 Math.min(Math.min(vertex1.y, vertex2.y), vertex3.y));
 
         setBounds(minPoint.x, minPoint.y, maxPoint.x - minPoint.x, maxPoint.y - minPoint.y);
-        this.color = color;
     }
 
     protected void paintComponent(Graphics g) {
@@ -38,11 +36,6 @@ public class Triangle extends Figure{
 
         setLocation(minPoint.x, minPoint.y);
 
-        if(minPoint.x  <= 0 || maxPoint.x >= frame.getContentPane().getWidth()){
-            distance.reverceX();
-        }
-        if(minPoint.y <= 0 || maxPoint.y >= frame.getContentPane().getHeight()){
-            distance.reverceY();
-        }
+        checkRange(minPoint, maxPoint, distance, frame);
     }
 }

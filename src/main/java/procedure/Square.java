@@ -3,7 +3,7 @@ package procedure;
 import javax.swing.*;
 import java.awt.*;
 
-public class Square extends AbstractButton{
+public class Square extends JComponent{
     private Color color;
 
     Square(int x, int y, int size, int color) {

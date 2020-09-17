@@ -2,6 +2,8 @@ package objects;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class Circle extends Figure{
 
@@ -9,13 +11,18 @@ public class Circle extends Figure{
     private int radius;
 
     Circle(Point center, int radius, Color color, Point distance) {
-        super();
-        setBounds(center.x - radius, center.y - radius, radius * 2, radius * 2);
+        super(distance, color);
         this.center = center;
-        this.distance = distance;
         this.radius = radius;
-        this.color = color;
-        }
+        this.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                super.mouseClicked(e);
+                System.out.println("X=" + e.getX() + " Y=" + e.getY());
+            }
+        });
+        setBounds(center.x - radius, center.y - radius, radius * 2, radius * 2);
+    }
 
     protected void paintComponent(Graphics g) {
         g.setColor(color);
@@ -25,12 +32,6 @@ public class Circle extends Figure{
     public void move(JFrame frame) {
         center.move(distance);
         setLocation(center.x - radius, center.y - radius);
-
-        if(center.x - radius  <= 0 || center.x + radius >= frame.getContentPane().getWidth()){
-            distance.reverceX();
-        }
-        if(center.y - radius <= 0 || center.y + radius >= frame.getContentPane().getHeight()){
-            distance.reverceY();
-        }
+        checkRange(center.getDistancePoint(- radius),center.getDistancePoint(radius), distance, frame);
     }
 }

@@ -2,17 +2,28 @@ package objects;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowEvent;
 
 public class FiguresObjects {
     private static final int WIDTH = 500;
     private static final int HEIGHT = 500;
 
     public static void main(String[] args) throws InterruptedException {
-        JFrame frame = new JFrame("test");
+        final JFrame frame = new JFrame("test");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(WIDTH,HEIGHT);
         frame.setLayout(null);
         frame.setVisible(true);
+        frame.addKeyListener(new KeyAdapter() {
+            @Override
+            public void keyPressed(KeyEvent e) {
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+                }
+            }
+        });
 
         frame.add(new Circle(new Point(110, 120), 50,Color.RED, new Point(1, 2)));
         frame.add(new Circle(new Point(90, 60), 30, Color.YELLOW, new Point(2, 2)));

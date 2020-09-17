@@ -21,4 +21,9 @@ public class Point {
     public void reverceY(){
         y = -y;
     }
+
+    public Point getDistancePoint(int distance){
+        return new Point(x + distance, y + distance);
+    }
+
 }

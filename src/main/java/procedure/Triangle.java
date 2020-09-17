@@ -3,7 +3,7 @@ package procedure;
 import javax.swing.*;
 import java.awt.*;
 
-public class Triangle extends AbstractButton{
+public class Triangle extends JComponent{
     private Color color;
     int x1, y1, x2, y2, x3, y3;
     private int xMin, yMin;

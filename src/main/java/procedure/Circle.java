@@ -3,7 +3,7 @@ package procedure;
 import javax.swing.*;
 import java.awt.*;
 
-public class Circle extends AbstractButton{
+public class Circle extends JComponent{
     private Color color;
     private int radius;
 
