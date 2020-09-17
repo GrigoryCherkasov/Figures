@@ -20,9 +20,9 @@ public class Square extends Figure{
         g.fillRect(0, 0, getSize().width-1 ,getSize().height-1 );
     }
 
-    public void move(JFrame frame) {
+    public void move() {
         corner.move(distance);
         setLocation(corner.x, corner.y);
-        checkRange(corner, corner.getDistancePoint(size), distance, frame);
+        checkRange(corner, corner.getDistancePoint(size), distance);
     }
 }

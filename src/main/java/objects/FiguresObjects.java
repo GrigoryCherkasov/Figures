@@ -2,9 +2,7 @@ package objects;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.awt.event.WindowEvent;
+import java.awt.event.*;
 
 public class FiguresObjects {
     private static final int WIDTH = 500;
@@ -37,7 +35,7 @@ public class FiguresObjects {
         while (true) {
             Thread.sleep(10);
             for (Component figure : frame.getContentPane().getComponents()) {
-                ((Figure)figure).move(frame);
+                ((Figure)figure).move();
             }
         }
     }

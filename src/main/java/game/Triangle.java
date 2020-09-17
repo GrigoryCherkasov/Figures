@@ -1,13 +1,15 @@
-package objects;
+package game;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
+import java.awt.Container;
+import java.util.Random;
 
-public class Triangle extends Figure{
+public class Triangle extends Figure {
     private Point vertex1, vertex2, vertex3;
     private Point maxPoint, minPoint;
 
-    Triangle(Point vertex1, Point vertex2, Point vertex3, Color color, Point distance) {
+    public Triangle(Point vertex1, Point vertex2, Point vertex3, Color color, Point distance) {
         super(distance, color);
         this.vertex1 = vertex1;
         this.vertex2 = vertex2;
@@ -38,4 +40,24 @@ public class Triangle extends Figure{
 
         checkRange(minPoint, maxPoint, distance);
     }
+
+    public static Figure createRandomFigure(Container container){
+        Random random = new Random();
+        int ratio = random.nextInt(3) + 2;
+        int containerWidth = container.getWidth();
+        int containerHeight = container.getHeight();
+
+        int xSize = (50 + random.nextInt(containerWidth - 50)) / ratio;
+        int ySize = (100 + random.nextInt(containerHeight - 100)) / ratio;
+
+        Point vert1 = new Point(0, random.nextInt(ySize));
+        Point vert2 = new Point(xSize/2 + random.nextInt(xSize / 2), 0);
+        Point vert3 = new Point(xSize/2 + random.nextInt(xSize / 2),  ySize);
+
+        Point distance = new Point(random.nextInt(2) + 1,
+                random.nextInt(2) + 1);
+
+        return new Triangle(vert1, vert2, vert3, getRandomColor(), distance);
+    }
+
 }

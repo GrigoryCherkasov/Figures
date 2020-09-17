@@ -14,13 +14,6 @@ public class Circle extends Figure{
         super(distance, color);
         this.center = center;
         this.radius = radius;
-        this.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mouseClicked(MouseEvent e) {
-                super.mouseClicked(e);
-                System.out.println("X=" + e.getX() + " Y=" + e.getY());
-            }
-        });
         setBounds(center.x - radius, center.y - radius, radius * 2, radius * 2);
     }
 
@@ -29,9 +22,9 @@ public class Circle extends Figure{
         g.fillOval(0, 0, getSize().width-1 ,getSize().height-1 );
     }
 
-    public void move(JFrame frame) {
+    public void move() {
         center.move(distance);
         setLocation(center.x - radius, center.y - radius);
-        checkRange(center.getDistancePoint(- radius),center.getDistancePoint(radius), distance, frame);
+        checkRange(center.getDistancePoint(- radius),center.getDistancePoint(radius), distance);
     }
 }
