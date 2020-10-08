@@ -1,28 +1,28 @@
 package objects;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class Square extends Figure{
 
-    private Point corner;
-    private int size;
+    private final Point corner;
+    private final int size;
 
-    Square(Point corner, int size, Color color, Point distance) {
+    Square(Point corner, int size, Point distance, Color color) {
         super(distance, color);
         this.corner = corner;
         this.size = size;
-        setBounds(corner.x, corner.y, size, size);
     }
 
-    protected void paintComponent(Graphics g) {
-        g.setColor(color);
-        g.fillRect(0, 0, getSize().width-1 ,getSize().height-1 );
+    @Override
+    public void draw() {
+        canvas.fillRect(corner.x, corner.y, size , size, color);
     }
 
-    public void move() {
-        corner.move(distance);
-        setLocation(corner.x, corner.y);
-        checkRange(corner, corner.getDistancePoint(size), distance);
+    @Override
+    public void move() { corner.movePoint(distance); }
+
+    @Override
+    public void checkBorder() {
+        checkRange(corner, corner.pointIn(size), distance);
     }
 }

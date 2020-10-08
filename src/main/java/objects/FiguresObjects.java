@@ -1,42 +1,39 @@
 package objects;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 
 public class FiguresObjects {
     private static final int WIDTH = 500;
     private static final int HEIGHT = 500;
 
     public static void main(String[] args) throws InterruptedException {
-        final JFrame frame = new JFrame("test");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(WIDTH,HEIGHT);
-        frame.setLayout(null);
-        frame.setVisible(true);
-        frame.addKeyListener(new KeyAdapter() {
+
+        PaintWindow paintWindow = new PaintWindow(WIDTH, HEIGHT){
             @Override
-            public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    frame.dispatchEvent(new WindowEvent(frame, WindowEvent.WINDOW_CLOSING));
+            public void paintCanvas(PaintCanvas canvas) {
+                for(Figure figure: canvas.getFigures()){
+                    figure.draw();
+                    figure.move();
+                    figure.checkBorder();
                 }
             }
-        });
+        };
 
-        frame.add(new Circle(new Point(110, 120), 50,Color.RED, new Point(1, 2)));
-        frame.add(new Circle(new Point(90, 60), 30, Color.YELLOW, new Point(2, 2)));
-        frame.add(new Square(new Point(30, 50), 40, Color.GREEN, new Point(2, 3)));
-        frame.add(new Square(new Point(200, 150), 50, Color.GRAY, new Point(1, 1)));
-        frame.add(new Triangle(new Point(40, 30), new Point(55, 80), new Point(90, 70),
-                Color.BLUE, new Point(3, 2)));
-        frame.add(new Triangle(new Point(200, 250), new Point(240, 180), new Point(270, 220),
-                Color.MAGENTA, new Point(2, 1)));
+        PaintCanvas canvas = paintWindow.getPaintCanvas();
+        canvas.addFigure(new Circle(new Point(110, 120), 50, new Point(1, 2), Color.RED));
+        canvas.addFigure(new Circle(new Point(90, 60), 30, new Point(2, 2), Color.YELLOW));
+        canvas.addFigure(new Square(new Point(30, 50), 40, new Point(2, 3), Color.GREEN));
+        canvas.addFigure(new Square(new Point(200, 150), 50, new Point(1, 1), Color.GRAY));
+        canvas.addFigure(new Triangle(new Point(40, 30), new Point(55, 80), new Point(90, 70),
+                new Point(3, 2), Color.BLUE));
+        canvas.addFigure(new Triangle(new Point(200, 250), new Point(240, 180), new Point(270, 220),
+                new Point(2, 1), Color.MAGENTA));
+
+        paintWindow.setVisible(true);
 
         while (true) {
+            paintWindow.repaint();
             Thread.sleep(10);
-            for (Component figure : frame.getContentPane().getComponents()) {
-                ((Figure)figure).move();
-            }
         }
     }
 }

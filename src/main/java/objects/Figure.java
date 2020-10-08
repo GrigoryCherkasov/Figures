@@ -1,29 +1,33 @@
 package objects;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 
-public abstract class Figure extends JComponent{
+public abstract class Figure{
     protected Point distance;
     protected Color color;
-    private final JComponent thisComponent;
+    protected PaintCanvas canvas;
 
     protected Figure(Point distance, Color color){
         this.distance = distance;
         this.color = color;
-        thisComponent = this;
     }
 
-    public abstract void move();
+    public void setCanvas(PaintCanvas canvas) {
+        this.canvas = canvas;
+    }
 
-    public void checkRange(Point minPoint, Point maxPoint, Point distance) {
-
-        if(minPoint.x  <= 0 || maxPoint.x >= getParent().getWidth()){
+    protected void checkRange(Point minPoint, Point maxPoint, Point distance) {
+        if(minPoint.x  <= 0 || maxPoint.x >= canvas.getWidth()){
             distance.reverceX();
         }
-        if(minPoint.y <= 0 || maxPoint.y >= getParent().getHeight()){
+        if(minPoint.y <= 0 || maxPoint.y >= canvas.getHeight()){
             distance.reverceY();
         }
     }
+
+    public abstract void draw();
+
+    public abstract void move();
+
+    public abstract void checkBorder();
 }

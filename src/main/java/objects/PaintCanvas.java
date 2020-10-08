@@ -1,12 +1,43 @@
-package procedure;
+package objects;
 
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class PaintCanvas {
         private Graphics g;
-        private  Insets insets;
+        private Insets insets;
+        private int width;
+        private int height;
+        private ArrayList<Figure> figures;
 
-        public PaintCanvas(){}
+        public void addFigure(Figure figure){
+            if(figures == null){
+                figures = new ArrayList<>();
+            }
+            figure.setCanvas(this);
+            figures.add(figure);
+        }
+
+        public List<Figure> getFigures(){
+        return figures;
+    }
+
+         public void setWidth(int width) {
+            this.width = width;
+        }
+
+        public void setHeight(int height) {
+            this.height = height;
+        }
+
+        public int getWidth() {
+            return width;
+        }
+
+        public int getHeight() {
+            return height;
+        }
 
         public void setGraphics(Graphics g) {
             this.g = g;
