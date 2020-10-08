@@ -1,5 +1,8 @@
 package objects;
 
+import CommonObjects.PaintCanvas;
+import CommonObjects.PaintWindow;
+
 import java.awt.*;
 
 public class FiguresObjects {
@@ -8,18 +11,9 @@ public class FiguresObjects {
 
     public static void main(String[] args) throws InterruptedException {
 
-        PaintWindow paintWindow = new PaintWindow(WIDTH, HEIGHT){
-            @Override
-            public void paintCanvas(PaintCanvas canvas) {
-                for(Figure figure: canvas.getFigures()){
-                    figure.draw();
-                    figure.move();
-                    figure.checkBorder();
-                }
-            }
-        };
+        FiguresWindow figuresWindow = new FiguresWindow(WIDTH, HEIGHT);
 
-        PaintCanvas canvas = paintWindow.getPaintCanvas();
+        PaintCanvas canvas = figuresWindow.getPaintCanvas();
         canvas.addFigure(new Circle(new Point(110, 120), 50, new Point(1, 2), Color.RED));
         canvas.addFigure(new Circle(new Point(90, 60), 30, new Point(2, 2), Color.YELLOW));
         canvas.addFigure(new Square(new Point(30, 50), 40, new Point(2, 3), Color.GREEN));
@@ -29,10 +23,10 @@ public class FiguresObjects {
         canvas.addFigure(new Triangle(new Point(200, 250), new Point(240, 180), new Point(270, 220),
                 new Point(2, 1), Color.MAGENTA));
 
-        paintWindow.setVisible(true);
+        figuresWindow.setVisible(true);
 
         while (true) {
-            paintWindow.repaint();
+            figuresWindow.repaint();
             Thread.sleep(10);
         }
     }

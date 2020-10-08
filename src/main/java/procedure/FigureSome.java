@@ -1,15 +1,18 @@
 package procedure;
 
+import CommonObjects.PaintCanvasStruct;
+import CommonObjects.PaintWindowStruct;
+
 import java.awt.*;
 
-public class FigureSome extends PaintWindow{
+public class FigureSome extends PaintWindowStruct {
 
     int[][] circlesCoordinates = {{110, 120, 30, 1, 2, 0x00ff0000}, {90, 60, 45, 2, 2, 0x00ffff00}};
     int[][] squaresCoordinates = {{30, 50, 40, 2, 3, 0x0000ffff}, {200, 150, 50, 1, 1, 0x0000ff00}};
     int[][] trianglesCoordinates = {{40, 30, 55, 80, 90, 70, 3, 2, 0x000000ff}, {200, 250, 240, 180, 270, 220, 2, 1, 0x00ff00ff}};
 
     @Override
-    public void paint(PaintCanvas g) {
+    public void paint(PaintCanvasStruct g) {
 
         for(int i = 0; i < squaresCoordinates.length; i++){
             int[] square = squaresCoordinates[i];
@@ -76,7 +79,7 @@ public class FigureSome extends PaintWindow{
 
     public static void main(String[] args) throws InterruptedException {
 
-        PaintWindow paintWindow = new FigureSome();
+        PaintWindowStruct paintWindow = new FigureSome();
         paintWindow.setVisible(true);
 
         while (true) {

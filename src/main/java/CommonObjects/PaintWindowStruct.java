@@ -1,17 +1,17 @@
-package procedure;
+package CommonObjects;
 
 import javax.swing.*;
 import java.awt.*;
 
-public class PaintWindow extends JFrame {
-    PaintCanvas canvas;
+public class PaintWindowStruct extends JFrame {
+    PaintCanvasStruct canvas;
 
-    public PaintWindow(){
+    public PaintWindowStruct(){
         this(500, 500);
     }
 
-    public PaintWindow(int width, int height){
-        canvas = new PaintCanvas();
+    public PaintWindowStruct(int width, int height){
+        canvas = new PaintCanvasStruct();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(new Dimension(width, height));
         setLayout(null);
@@ -31,5 +31,5 @@ public class PaintWindow extends JFrame {
         return getContentPane().getHeight();
     }
 
-    public void paint(PaintCanvas g){}
+    public void paint(PaintCanvasStruct g){}
 }

@@ -1,8 +1,11 @@
 package procedure;
 
+import CommonObjects.PaintCanvasStruct;
+import CommonObjects.PaintWindowStruct;
+
 import java.awt.*;
 
-public class FigureProc extends PaintWindow {
+public class FigureProc extends PaintWindowStruct {
 
     private static final int CIRCLE = 0;
     private static final int SQUARE = 1;
@@ -13,25 +16,25 @@ public class FigureProc extends PaintWindow {
     int[][][] trianglesCoordinates = {{{40, 30, 55, 80, 90, 70}, {}, {3, 2}, {0x000000ff}}, {{200, 250, 240, 180, 270, 220}, {}, {2, 1}, {0x00ff00ff}}};
 
     @Override
-    public void paint(PaintCanvas g) {
+    public void paint(PaintCanvasStruct g) {
         moveFigures(circlesCoordinates, CIRCLE, g);
         moveFigures(squaresCoordinates, SQUARE, g);
         moveFigures(trianglesCoordinates, TRIANGLE, g);
     }
 
-    private void moveFigures(int[][][] figures, int type, PaintCanvas g){
+    private void moveFigures(int[][][] figures, int type, PaintCanvasStruct g){
         for(int i = 0; i < figures.length; i++){
             moveFigure(figures[i], type, g);
         }
     }
 
-    private void moveFigure(int[][] figure, int type, PaintCanvas g) {
+    private void moveFigure(int[][] figure, int type, PaintCanvasStruct g) {
         drawFigure(figure[0], figure[1], new Color(figure[3][0]), type, g);
         move(figure[0], figure[2]);
         checkBorders(figure[0], figure[1], figure[2], type);
     }
 
-    private void drawFigure(int[] coordinates, int[] size, Color color, int type, PaintCanvas g){
+    private void drawFigure(int[] coordinates, int[] size, Color color, int type, PaintCanvasStruct g){
         if (type == CIRCLE){
             g.fillOval(coordinates[0], coordinates[1], size[0], color);
         } else if (type == SQUARE){
@@ -86,7 +89,7 @@ public class FigureProc extends PaintWindow {
 
     public static void main(String[] args) throws InterruptedException {
 
-        PaintWindow paintWindow = new FigureProc();
+        PaintWindowStruct paintWindow = new FigureProc();
         paintWindow.setVisible(true);
 
         while (true) {

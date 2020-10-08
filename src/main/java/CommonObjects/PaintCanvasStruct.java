@@ -1,12 +1,12 @@
-package procedure;
+package CommonObjects;
 
 import java.awt.*;
 
-public class PaintCanvas {
+public class PaintCanvasStruct {
         private Graphics g;
         private  Insets insets;
 
-        public PaintCanvas(){}
+        public PaintCanvasStruct(){}
 
         public void setGraphics(Graphics g) {
             this.g = g;

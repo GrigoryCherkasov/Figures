@@ -1,5 +1,7 @@
 package objects;
 
+import CommonObjects.PaintCanvas;
+
 import java.awt.*;
 
 public abstract class Figure{

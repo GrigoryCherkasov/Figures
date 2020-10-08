@@ -1,4 +1,4 @@
-package objects;
+package CommonObjects;
 
 import javax.swing.*;
 import java.awt.*;

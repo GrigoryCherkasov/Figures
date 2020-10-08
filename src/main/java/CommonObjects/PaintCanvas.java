@@ -1,4 +1,6 @@
-package objects;
+package CommonObjects;
+
+import objects.Figure;
 
 import java.awt.*;
 import java.util.ArrayList;
