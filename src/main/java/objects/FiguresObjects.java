@@ -1,9 +1,7 @@
 package objects;
 
 import CommonObjects.PaintCanvas;
-import CommonObjects.PaintWindow;
-
-import java.awt.*;
+import java.awt.Color;
 
 public class FiguresObjects {
     private static final int WIDTH = 500;

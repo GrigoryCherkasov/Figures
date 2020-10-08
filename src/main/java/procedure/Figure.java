@@ -36,10 +36,10 @@ public class Figure extends PaintWindowStruct {
         xq += dxq;
         yq += dyq;
 
-        if(xq  <= 0 || xq + sizeq >= getCanvasWith()){
+        if (xq <= 0 || xq + sizeq >= getCanvasWith()) {
             dxq = -dxq;
         }
-        if(yq <= 0 || yq + sizeq >= getCanvasHeight()){
+        if (yq <= 0 || yq + sizeq >= getCanvasHeight()) {
             dyq = -dyq;
         }
 
@@ -48,10 +48,10 @@ public class Figure extends PaintWindowStruct {
         xc += dxc;
         yc += dyc;
 
-        if(xc - radiusc  <= 0 || xc + radiusc >= getCanvasWith()){
+        if (xc - radiusc <= 0 || xc + radiusc >= getCanvasWith()) {
             dxc = -dxc;
         }
-        if(yc - radiusc <= 0 || yc + radiusc >= getCanvasHeight()){
+        if (yc - radiusc <= 0 || yc + radiusc >= getCanvasHeight()) {
             dyc = -dyc;
         }
 
@@ -68,10 +68,10 @@ public class Figure extends PaintWindowStruct {
         int yMin = Math.min(Math.min(y1, y2), y3);
         int yMax = Math.max(Math.max(y1, y2), y3);
 
-        if(xMin  <= 0 || xMax >= getCanvasWith()){
+        if (xMin <= 0 || xMax >= getCanvasWith()) {
             dxt = -dxt;
         }
-        if(yMin <= 0 || yMax >= getCanvasHeight()){
+        if (yMin <= 0 || yMax >= getCanvasHeight()) {
             dyt = -dyt;
         }
     }

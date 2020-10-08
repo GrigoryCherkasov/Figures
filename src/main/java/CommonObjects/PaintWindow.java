@@ -1,13 +1,14 @@
 package CommonObjects;
 
-import javax.swing.*;
-import java.awt.*;
+import javax.swing.JFrame;
+import java.awt.Dimension;
+import java.awt.Graphics;
 
 public abstract class PaintWindow extends JFrame {
     PaintCanvas canvas;
 
 
-    public PaintWindow(int width, int height){
+    public PaintWindow(int width, int height) {
         canvas = new PaintCanvas();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(new Dimension(width, height));
@@ -25,7 +26,7 @@ public abstract class PaintWindow extends JFrame {
     }
 
 
-    public PaintCanvas getPaintCanvas(){
+    public PaintCanvas getPaintCanvas() {
         return canvas;
     }
 

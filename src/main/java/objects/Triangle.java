@@ -1,6 +1,6 @@
 package objects;
 
-import java.awt.*;
+import java.awt.Color;
 
 public class Triangle extends Figure{
     private final Point vertex1, vertex2, vertex3;
