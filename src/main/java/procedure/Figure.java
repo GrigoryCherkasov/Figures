@@ -19,12 +19,12 @@ public class Figure extends PaintWindowStruct {
     int dxc = 1;
     int dyc = 2;
 
-    int x1 = 40;
-    int y1 = 30;
-    int x2 = 55;
-    int y2 = 80;
-    int x3 = 90;
-    int y3 = 70;
+    int xt1 = 40;
+    int yt1 = 30;
+    int xt2 = 55;
+    int yt2 = 80;
+    int xt3 = 90;
+    int yt3 = 70;
     int dxt = 3;
     int dyt = 2;
 
@@ -55,18 +55,18 @@ public class Figure extends PaintWindowStruct {
             dyc = -dyc;
         }
 
-        g.fillTriangle(x1, y1, x2, y2, x3, y3, Color.YELLOW);
-        x1 += dxt;
-        y1 += dyt;
-        x2 += dxt;
-        y2 += dyt;
-        x3 += dxt;
-        y3 += dyt;
+        g.fillTriangle(xt1, yt1, xt2, yt2, xt3, yt3, Color.YELLOW);
+        xt1 += dxt;
+        yt1 += dyt;
+        xt2 += dxt;
+        yt2 += dyt;
+        xt3 += dxt;
+        yt3 += dyt;
 
-        int xMin = Math.min(Math.min(x1, x2), x3);
-        int xMax = Math.max(Math.max(x1, x2), x3);
-        int yMin = Math.min(Math.min(y1, y2), y3);
-        int yMax = Math.max(Math.max(y1, y2), y3);
+        int xMin = Math.min(Math.min(xt1, xt2), xt3);
+        int xMax = Math.max(Math.max(xt1, xt2), xt3);
+        int yMin = Math.min(Math.min(yt1, yt2), yt3);
+        int yMax = Math.max(Math.max(yt1, yt2), yt3);
 
         if (xMin <= 0 || xMax >= getCanvasWith()) {
             dxt = -dxt;

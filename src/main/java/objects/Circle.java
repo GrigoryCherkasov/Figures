@@ -23,8 +23,26 @@ public class Circle extends Figure{
         center.movePoint(distance);
     }
 
+    public void changeColor() {
+        if(step % 10 == 0) {
+            color = new Color((int)(Math.random() * 0x1000000));
+            step = 0;
+        }
+        step++;
+    };
+
     @Override
     public void checkBorder() {
         checkRange(center.pointIn(-radius), center.pointIn(radius), distance);
     }
+
+    protected void checkRange(Point minPoint, Point maxPoint, Point distance) {
+        if(minPoint.x  <= 0 || maxPoint.x >= canvas.getWidth()){
+            distance.reverceX();
+        }
+        if(minPoint.y <= 0 || maxPoint.y >= canvas.getHeight()){
+            distance.reverceY();
+        }
+    }
+
 }

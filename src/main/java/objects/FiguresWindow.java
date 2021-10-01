@@ -15,6 +15,7 @@ public class FiguresWindow extends PaintWindow {
             figure.draw();
             figure.move();
             figure.checkBorder();
+            figure.changeColor();
         }
     }
 }

@@ -8,6 +8,7 @@ public abstract class Figure{
     protected Point distance;
     protected Color color;
     protected PaintCanvas canvas;
+    protected int step = 0;
 
     protected Figure(Point distance, Color color){
         this.distance = distance;
@@ -27,9 +28,12 @@ public abstract class Figure{
         }
     }
 
+    public void changeColor() {};
+
     public abstract void draw();
 
     public abstract void move();
 
     public abstract void checkBorder();
+
 }
