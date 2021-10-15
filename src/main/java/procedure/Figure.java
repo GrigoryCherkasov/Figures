@@ -15,7 +15,7 @@ public class Figure extends PaintWindowStruct {
 
     int xc = 110;
     int yc = 120;
-    int radiusc = 30;
+    int rc = 30;
     int dxc = 1;
     int dyc = 2;
 
@@ -43,15 +43,15 @@ public class Figure extends PaintWindowStruct {
             dyq = -dyq;
         }
 
-        g.fillOval(xc, yc, radiusc, Color.RED);
+        g.fillOval(xc, yc, rc, Color.RED);
 
         xc += dxc;
         yc += dyc;
 
-        if (xc - radiusc <= 0 || xc + radiusc >= getCanvasWith()) {
+        if (xc - rc <= 0 || xc + rc >= getCanvasWith()) {
             dxc = -dxc;
         }
-        if (yc - radiusc <= 0 || yc + radiusc >= getCanvasHeight()) {
+        if (yc - rc <= 0 || yc + rc >= getCanvasHeight()) {
             dyc = -dyc;
         }
 
