@@ -35,14 +35,14 @@ public class FigureProc extends PaintWindowStruct {
 
     @Override
     public void paint(PaintCanvasStruct g) {
-        moveCircle(circlesCoordinates, g);
-        moveSquares(squaresCoordinates, g);
-        moveTriangles(trianglesCoordinates, g);
-        changeCircleColor(squaresCoordinates);
+        paintCircle(circlesCoordinates, g);
+        paintSquares(squaresCoordinates, g);
+        paintTriangles(trianglesCoordinates, g);
+        changeCircleColor(circlesCoordinates);
         changeTrianglesColor(trianglesCoordinates);
     }
 
-    private void moveCircle(int[][][] circles, PaintCanvasStruct g) {
+    private void paintCircle(int[][][] circles, PaintCanvasStruct g) {
         for (int i = 0; i < circles.length; i++) {
             g.fillOval(circles[i][0][0], circles[i][0][1], circles[i][1][0], new Color(circles[i][3][0]));
             move(circles[i][0], circles[i][2]);
@@ -50,7 +50,7 @@ public class FigureProc extends PaintWindowStruct {
         }
     }
 
-    private void moveSquares(int[][][] squares, PaintCanvasStruct g) {
+    private void paintSquares(int[][][] squares, PaintCanvasStruct g) {
         for (int i = 0; i < squares.length; i++) {
             g.fillRect(squares[i][0][0], squares[i][0][1], squares[i][1][0], squares[i][1][0], new Color(squares[i][3][0]));
             move(squares[i][0], squares[i][2]);
@@ -58,7 +58,7 @@ public class FigureProc extends PaintWindowStruct {
         }
     }
 
-    private void moveTriangles(int[][][] triangles, PaintCanvasStruct g) {
+    private void paintTriangles(int[][][] triangles, PaintCanvasStruct g) {
         for (int i = 0; i < triangles.length; i++) {
             g.fillTriangle(triangles[i][0][0], triangles[i][0][1], triangles[i][0][2], triangles[i][0][3], triangles[i][0][4], triangles[i][0][5], new Color(triangles[i][2][0]));
             move(triangles[i][0], triangles[i][1]);
