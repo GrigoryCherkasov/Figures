@@ -14,10 +14,11 @@ public abstract class Figure{
         this.distance = distance;
         this.color = color;
     }
+    public abstract void draw();
 
-    public void setCanvas(PaintCanvas canvas) {
-        this.canvas = canvas;
-    }
+    public abstract void move();
+
+    public abstract void checkBorder();
 
     protected void checkRange(Point minPoint, Point maxPoint) {
         if(minPoint.x  <= 0 || maxPoint.x >= canvas.getWidth()){
@@ -30,10 +31,9 @@ public abstract class Figure{
 
     public void changeColor() {};
 
-    public abstract void draw();
 
-    public abstract void move();
-
-    public abstract void checkBorder();
+    public void setCanvas(PaintCanvas canvas) {
+        this.canvas = canvas;
+    }
 
 }

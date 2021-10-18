@@ -18,15 +18,6 @@ public class Triangle extends Figure{
     }
 
     @Override
-    public void changeColor() {
-        if(step % 12 == 0) {
-            color = new Color(~color.getRGB());
-            step = 0;
-        }
-        step++;
-    };
-
-    @Override
     public void move() {
         vertex1.movePoint(distance);
         vertex2.movePoint(distance);
@@ -43,4 +34,13 @@ public class Triangle extends Figure{
 
         checkRange(minPoint, maxPoint);
     }
+
+    @Override
+    public void changeColor() {
+        if(step % 12 == 0) {
+            color = new Color(~color.getRGB());
+            step = 0;
+        }
+        step++;
+    };
 }

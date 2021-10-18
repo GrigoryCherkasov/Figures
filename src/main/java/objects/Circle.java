@@ -23,6 +23,13 @@ public class Circle extends Figure{
         center.movePoint(distance);
     }
 
+    @Override
+    public void checkBorder() {
+        checkRange(new Point(center.x - radius, center.y  - radius),
+                new Point(center.x + radius, center.y  + radius));
+    }
+
+    @Override
     public void changeColor() {
         if(step % 10 == 0) {
             color = new Color((int)(Math.random() * 0x1000000));
@@ -30,10 +37,4 @@ public class Circle extends Figure{
         }
         step++;
     };
-
-    @Override
-    public void checkBorder() {
-        checkRange(new Point(center.x - radius, center.y  - radius),
-                new Point(center.x + radius, center.y  + radius));
-    }
 }
