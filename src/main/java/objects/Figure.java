@@ -5,12 +5,12 @@ import CommonObjects.PaintCanvas;
 import java.awt.Color;
 
 public abstract class Figure{
-    protected Point distance;
+    protected Distance distance;
     protected Color color;
     protected PaintCanvas canvas;
     protected int step = 0;
 
-    protected Figure(Point distance, Color color){
+    protected Figure(Distance distance, Color color){
         this.distance = distance;
         this.color = color;
     }
@@ -19,7 +19,7 @@ public abstract class Figure{
         this.canvas = canvas;
     }
 
-    protected void checkRange(Point minPoint, Point maxPoint, Point distance) {
+    protected void checkRange(Point minPoint, Point maxPoint) {
         if(minPoint.x  <= 0 || maxPoint.x >= canvas.getWidth()){
             distance.reverceX();
         }

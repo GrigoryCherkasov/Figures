@@ -7,7 +7,7 @@ public class Square extends Figure{
     private final Point corner;
     private final int size;
 
-    Square(Point corner, int size, Point distance, Color color) {
+    Square(Point corner, int size, Distance distance, Color color) {
         super(distance, color);
         this.corner = corner;
         this.size = size;
@@ -23,6 +23,6 @@ public class Square extends Figure{
 
     @Override
     public void checkBorder() {
-        checkRange(corner, corner.pointIn(size), distance);
+        checkRange(corner, new Point(corner.x + size, corner.y + size));
     }
 }

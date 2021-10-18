@@ -7,7 +7,7 @@ public class Circle extends Figure{
     private final Point center;
     private final int radius;
 
-    Circle(Point center, int radius, Point distance, Color color) {
+    Circle(Point center, int radius, Distance distance, Color color) {
         super(distance, color);
         this.center = center;
         this.radius = radius;
@@ -33,16 +33,7 @@ public class Circle extends Figure{
 
     @Override
     public void checkBorder() {
-        checkRange(center.pointIn(-radius), center.pointIn(radius), distance);
+        checkRange(new Point(center.x - radius, center.y  - radius),
+                new Point(center.x + radius, center.y  + radius));
     }
-
-    protected void checkRange(Point minPoint, Point maxPoint, Point distance) {
-        if(minPoint.x  <= 0 || maxPoint.x >= canvas.getWidth()){
-            distance.reverceX();
-        }
-        if(minPoint.y <= 0 || maxPoint.y >= canvas.getHeight()){
-            distance.reverceY();
-        }
-    }
-
 }

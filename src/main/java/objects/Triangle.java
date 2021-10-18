@@ -5,7 +5,7 @@ import java.awt.Color;
 public class Triangle extends Figure{
     private final Point vertex1, vertex2, vertex3;
 
-    Triangle(Point vertex1, Point vertex2, Point vertex3, Point distance, Color color) {
+    Triangle(Point vertex1, Point vertex2, Point vertex3, Distance distance, Color color) {
         super(distance, color);
         this.vertex1 = vertex1;
         this.vertex2 = vertex2;
@@ -41,6 +41,6 @@ public class Triangle extends Figure{
         Point maxPoint = new Point(Math.max(Math.max(vertex1.x, vertex2.x), vertex3.x),
                 Math.max(Math.max(vertex1.y, vertex2.y), vertex3.y));
 
-        checkRange(minPoint, maxPoint, distance);
+        checkRange(minPoint, maxPoint);
     }
 }

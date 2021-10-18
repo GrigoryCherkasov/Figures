@@ -9,21 +9,8 @@ public class Point {
         this.y = y;
     }
 
-    public void movePoint(Point distance){
+    public void movePoint(Distance distance){
         x += distance.x;
         y += distance.y;
     }
-
-    public Point pointIn(int distance){
-        return new Point(x + distance, y + distance);
-    }
-
-    public void reverceX(){
-        x = -x;
-    }
-
-    public void reverceY(){
-        y = -y;
-    }
-
 }
