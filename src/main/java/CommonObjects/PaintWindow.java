@@ -7,10 +7,6 @@ import java.awt.Graphics;
 public abstract class PaintWindow extends JFrame {
     PaintCanvas canvas;
 
-    public PaintWindow() {
-        this(500, 500);
-    }
-
     public PaintWindow(int width, int height) {
         canvas = new PaintCanvas();
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -31,13 +27,6 @@ public abstract class PaintWindow extends JFrame {
 
     public PaintCanvas getPaintCanvas() {
         return canvas;
-    }
-    public int getCanvasWith() {
-        return getContentPane().getWidth();
-    }
-
-    public int getCanvasHeight() {
-        return getContentPane().getHeight();
     }
 
     public abstract void paintCanvas(PaintCanvas canvas);

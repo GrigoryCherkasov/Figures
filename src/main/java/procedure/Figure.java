@@ -1,11 +1,13 @@
 package procedure;
 
 import CommonObjects.PaintCanvas;
+import CommonObjects.PaintCanvasStruct;
 import CommonObjects.PaintWindow;
+import CommonObjects.PaintWindowStruct;
 
 import java.awt.*;
 
-public class Figure extends PaintWindow {
+public class Figure extends PaintWindowStruct {
 
     int xq = 30;
     int yq = 50;
@@ -29,7 +31,7 @@ public class Figure extends PaintWindow {
     int dyt = 2;
 
     @Override
-    public void paintCanvas(PaintCanvas g) {
+    public void paint(PaintCanvasStruct g) {
 
         g.fillRect(xq, yq, sizeq, sizeq, Color.GREEN);
 
@@ -79,7 +81,7 @@ public class Figure extends PaintWindow {
 
     public static void main(String[] args) throws InterruptedException {
 
-        PaintWindow paintWindow = new Figure();
+        PaintWindowStruct paintWindow = new Figure();
         paintWindow.setVisible(true);
 
         while (true) {
